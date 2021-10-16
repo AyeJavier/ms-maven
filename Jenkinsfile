@@ -35,7 +35,7 @@ pipeline {
         stage('SCA'){
             steps{
                 figlet 'Dependency-Check'
-                sh 'mvn mvn dependency:purge-local-repository'
+                sh 'mvn dependency:purge-local-repository'
                 sh 'mvn org.owasp:dependency-check-maven:check'
                 
                 archiveArtifacts artifacts: 'target/dependency-check-report.html', followSymlinks: false
